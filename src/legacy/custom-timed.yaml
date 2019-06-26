@@ -1,0 +1,81 @@
+#######################################################
+#                                                     #
+#   Custom HTML Timed - Particle for Gantry           #
+#                                                     #
+#   Purpose: This project is based on the default     #
+#            Gantry - Custom HTML Particle but        #
+#            extends it with timing features. It      #
+#            is now possible to plan a time frame     #
+#            when the particle should be rendered.    #
+#                                                     #
+#   Author: Andreas Kar (thex) <andreas.kar@gmx.at>   #
+#   Repository: https://git.io/fjr7e                  #
+#   Homepage: https://gantryprojects.com              #
+#                                                     #
+#   -----------------                                 #
+#   Orignal Particle:                                 #
+#   -----------------                                 #
+#   Author: RocketTheme                               #
+#   Repository: https://git.io/fjwup                  #
+#   Homepage: http://gantry.org/                      #
+#                                                     #
+#######################################################
+
+name: Custom HTML Timed
+description: Display a custom HTML block with the option to define the time frame it should appear.
+type: particle
+icon: fa-code
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable the Custom HTML Timed particle.
+      default: true
+
+    set_general:
+      type: container.set
+      label: General
+      fields:
+        html:
+          type: textarea.textarea
+          label: Custom HTML
+          description: Enter custom HTML into here.
+          overridable: false
+
+        twig:
+           type: input.checkbox
+           label: Process Twig
+           description: Enable Twig template processing in the content. Twig will be processed before shortcodes.
+           default: '0'
+
+        filter:
+          type: input.checkbox
+          label: Process shortcodes
+          description: Enable shortcode processing / filtering in the content.
+          default: '0'
+
+    set_timing:
+      type: container.set
+      label: Timing
+      fields:
+        show:
+          type: select.select
+          label: Show
+          description: Select the front end rendering behaviour for the item.
+          default: default
+          options:
+            default: Default
+            once: Once
+            annual: Annual
+
+        startDate:
+          type: input.date
+          label: Start Date
+          description: Select the date when the item should be first shown (only for 'annual' and 'once').
+
+        endDate:
+          type: input.date
+          label: End Date
+          description: Select the date when the item should be last shown (only for 'annual' and 'once').

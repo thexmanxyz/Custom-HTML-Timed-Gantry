@@ -1,0 +1,82 @@
+#######################################################
+#                                                     #
+#   Custom HTML Timed - Particle for Gantry           #
+#                                                     #
+#   Purpose: This project is based on the default     #
+#            Gantry - Custom HTML Particle but        #
+#            extends it with timing features. It      #
+#            is now possible to plan a time frame     #
+#            when the particle should be rendered.    #
+#                                                     #
+#   Author: Andreas Kar (thex) <andreas.kar@gmx.at>   #
+#   Repository: https://git.io/fjr7e                  #
+#   Homepage: https://gantryprojects.com              #
+#                                                     #
+#   -----------------                                 #
+#   Orignal Particle:                                 #
+#   -----------------                                 #
+#   Author: RocketTheme                               #
+#   Repository: https://git.io/fjwup                  #
+#   Homepage: http://gantry.org/                      #
+#                                                     #
+#######################################################
+
+name: Custom HTML Timed
+description: Rendert einen benutzerdefinierten HTML Block und besitzt die Option einen Zeitrahmen zu definieren wann er angezeigt werden soll.
+type: particle
+icon: fa-code
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Akitiviert
+      description: Globale Aktivierung des Custom HTML Timed Neo Particles.
+      default: true
+
+    tabs:
+      type: container.tabs
+      fields:
+        tab_general:
+            label: Allgemein
+            fields:
+              html:
+                type: textarea.textarea
+                label: Benutzerdefiniertes HTML
+                description: Geben Sie Ihr benutzerdefiniertes HTML ein.
+                overridable: false
+
+              twig:
+                 type: input.checkbox
+                 label: Twig verarbeiten
+                 description: Aktiviert die Twig Template Verarbeitung für das eingegebene HTML. Twig wird vor den Shortcodes verarbeitet.
+                 default: '0'
+
+              filter:
+                type: input.checkbox
+                label: Shortcodes verarbeiten
+                description: Aktiviert die Shortcode Verarbeitung / Filterung für das eingegebene HTML.
+                default: '0'
+
+        tab_timing:
+            label: Planung
+            fields:
+              show:
+                type: select.select
+                label: Anzeige
+                description: Wählen Sie das Front-End Darstellungsverhalten für diesen Block.
+                default: default
+                options:
+                  default: Standard
+                  once: Einmal
+                  annual: Jährlich
+              
+              startDate:
+                type: input.date
+                label: Startdatum
+                description: Wählen Sie das Datum, wann dieser Block das erste Mal gezeigt werden soll (nur für die Optionen 'Jährlich' und 'Einmal').
+              
+              endDate:
+                type: input.date
+                label: Enddatum
+                description: Wählen Sie das Datum, wann dieser Block das letzte Mal gezeigt werden soll (nur für die Optionen 'Jährlich' und 'Einmal').

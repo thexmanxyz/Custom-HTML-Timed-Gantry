@@ -1,0 +1,48 @@
+{#######################################################}
+{#                                                     #}
+{#   Custom HTML Timed - Particle for Gantry           #}
+{#                                                     #}
+{#   Purpose: This project is based on the default     #}
+{#            Gantry - Custom HTML Particle but        #}
+{#            extends it with timing features. It      #}
+{#            is now possible to plan a time frame     #}
+{#            when the particle should be rendered.    #}
+{#                                                     #}
+{#   Author: Andreas Kar (thex) <andreas.kar@gmx.at>   #}
+{#   Repository: https://git.io/fjr7e                  #}
+{#   Homepage: https://gantryprojects.com              #}
+{#                                                     #}
+{#   -----------------                                 #}
+{#   Orignal Particle:                                 #}
+{#   -----------------                                 #}
+{#   Author: RocketTheme                               #}
+{#   Repository: https://git.io/fjwup                  #}
+{#   Homepage: http://gantry.org/                      #}
+{#                                                     #}
+{#######################################################}
+
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% set showParticle = particle.show|default('default') %}
+{% set format = (showParticle == 'once') ? 'Y-m-d' : 'm-d' %}
+{% set start, now, end = particle.startDate|date(format), "now"|date(format), particle.endDate|date(format) %}
+
+{% if showParticle == 'once' %}
+    {% if start <= now and end >= now %}
+        {% set enabled = true %}
+    {% endif %}       
+{% elseif showParticle == 'annual' %}
+    {% if (start <= end and start <= now and end >= now) or (start > end and (start <= now or end >= now)) %}
+        {% set enabled = true %}
+    {% endif %}
+{% else %}
+    {% set enabled = true %}
+{% endif %}
+
+{% set html = particle.twig ? gantry.theme.compile(particle.html) : particle.html %}
+
+{%- block particle -%}
+    {%- if enabled -%}
+        {{- ( particle.filter ? gantry.platform.filter(html) : html )|html|raw -}}
+    {%- endif -%}
+{%- endblock -%}
