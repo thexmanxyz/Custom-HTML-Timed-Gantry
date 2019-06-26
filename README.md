@@ -1,5 +1,5 @@
 # Custom HTML Timed - Particle for Gantry
-This project contains a Gantry Particle and is based on the default **Gantry - Custom HTML Particle** but extends it with timing features (e.g. default, one-time or annual). Hence, it is now possible to plan a time frame when the particle should be rendered. **Custom HTML Timed** is an advanced version of the standard Particle created by [Gantry](http://gantry.org/) and [RocketTheme](https://rockettheme.com/). Furthermore, it provides an easy, user friendly and GUI assisted configuration and integration. In the current revision the following CMSs are supported:
+This project contains a Gantry Particle and is based on the default **Gantry - Custom HTML** but extends it with timing features (e.g. default, one-time or annual). Hence, it is now possible to plan a time frame when the particle should be rendered. **Custom HTML Timed** is an advanced version of the standard Particle created by [Gantry](http://gantry.org/) and [RocketTheme](https://rockettheme.com/). Furthermore, it provides an easy, user friendly and GUI assisted configuration and integration. In the current revision the following CMSs are supported:
 * Joomla
 * Wordpress
 * Grav
