@@ -24,19 +24,21 @@
 {% extends '@nucleus/partials/particle.html.twig' %}
 
 {% set showParticle = particle.show|default('default') %}
-{% set format = (showParticle == 'once') ? 'Y-m-d' : 'm-d' %}
-{% set start, now, end = particle.startDate|date(format), "now"|date(format), particle.endDate|date(format) %}
 
-{% if showParticle == 'once' %}
-    {% if start <= now and end >= now %}
-        {% set enabled = true %}
-    {% endif %}       
-{% elseif showParticle == 'annual' %}
-    {% if (start <= end and start <= now and end >= now) or (start > end and (start <= now or end >= now)) %}
-        {% set enabled = true %}
-    {% endif %}
-{% else %}
+{% if showParticle == 'default' %}
     {% set enabled = true %}
+{% else %}
+    {% set format = (showParticle == 'once') ? 'Y-m-d' : 'm-d' %}
+    {% set start, now, end = particle.startDate|date(format), "now"|date(format), particle.endDate|date(format) %}
+    {% if showParticle == 'once' %}
+        {% if start <= now and end >= now %}
+            {% set enabled = true %}
+        {% endif %}       
+    {% elseif showParticle == 'annual' %}
+        {% if (start <= end and start <= now and end >= now) or (start > end and (start <= now or end >= now)) %}
+            {% set enabled = true %}
+        {% endif %}
+    {% endif %}
 {% endif %}
 
 {% set html = particle.twig ? gantry.theme.compile(particle.html) : particle.html %}
