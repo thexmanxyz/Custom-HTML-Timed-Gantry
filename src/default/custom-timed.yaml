@@ -47,13 +47,13 @@ form:
                 overridable: false
 
               twig:
-                 type: input.checkbox
+                 type: enable.enable
                  label: Process Twig
                  description: Enable Twig template processing in the content. Twig will be processed before shortcodes.
                  default: '0'
 
               filter:
-                type: input.checkbox
+                type: enable.enable
                 label: Process shortcodes
                 description: Enable shortcode processing / filtering in the content.
                 default: '0'

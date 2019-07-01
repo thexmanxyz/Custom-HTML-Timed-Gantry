@@ -47,13 +47,13 @@ form:
                 overridable: false
 
               twig:
-                 type: input.checkbox
+                 type: enable.enable
                  label: Twig verarbeiten
                  description: Aktiviert die Twig Template Verarbeitung für das eingegebene HTML. Twig wird vor den Shortcodes verarbeitet.
                  default: '0'
 
               filter:
-                type: input.checkbox
+                type: enable.enable
                 label: Shortcodes verarbeiten
                 description: Aktiviert die Shortcode Verarbeitung / Filterung für das eingegebene HTML.
                 default: '0'
