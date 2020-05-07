@@ -74,9 +74,9 @@ form:
               startDate:
                 type: input.date
                 label: Startdatum
-                description: Wählen Sie das Datum, wann dieser Block das erste Mal gezeigt werden soll (nur für die Optionen 'Jährlich' und 'Einmal').
+                description: Wählen Sie das Datum, wann dieser Block das erste Mal gezeigt werden soll (nur für die Optionen <b>Jährlich</b> und <b>Einmal</b>).
               
               endDate:
                 type: input.date
                 label: Enddatum
-                description: Wählen Sie das Datum, wann dieser Block das letzte Mal gezeigt werden soll (nur für die Optionen 'Jährlich' und 'Einmal').
+                description: Wählen Sie das Datum, wann dieser Block das letzte Mal gezeigt werden soll (nur für die Optionen <b>Jährlich</b> und <b>Einmal</b>).
