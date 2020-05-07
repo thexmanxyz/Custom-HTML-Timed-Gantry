@@ -74,9 +74,9 @@ form:
               startDate:
                 type: input.date
                 label: Start Date
-                description: Select the date when the item should be first shown (only for 'annual' and 'once').
+                description: Select the date when the item should be first shown (only for <b>annual</b> and <b>once</b>).
 
               endDate:
                 type: input.date
                 label: End Date
-                description: Select the date when the item should be last shown (only for 'annual' and 'once').
+                description: Select the date when the item should be last shown (only for <b>annual</b> and <b>once</b>).
